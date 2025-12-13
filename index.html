@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen active" id="home-screen">
+        <h1>Memory Match</h1>
+        <p class="subtitle">Test your memory and find all the matching pairs!</p>
+        
+        <div class="theme-selector">
+            <label>Select Theme:</label>
+            <select id="theme-select">
+                <option value="emojis">Emojis</option>
+                <option value="animals">Animals</option>
+                <option value="shapes">Shapes</option>
+            </select>
+        </div>
+
+        <div class="difficulty-buttons">
+            <button data-difficulty="easy">Easy</button>
+            <button data-difficulty="medium">Medium</button>
+            <button data-difficulty="hard">Hard</button>
+        </div>
+        <p class="note">Tap two cards to flip. Matches stay revealed.</p>
+    </div>
+
+    <div class="screen" id="game-screen">
+        <div class="game-header">
+            <div class="header-left">
+                <button class="back-btn" id="back-btn">← Back</button>
+            </div>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-label">Time</span>
+                    <span class="stat-value" id="timer">00:00</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Moves</span>
+                    <span class="stat-value" id="moves">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Matches</span>
+                    <span class="stat-value" id="matches">0/0</span>
+                </div>
+            </div>
+            <div class="header-buttons">
+                <button id="preview-btn">Preview</button>
+                <button id="restart-btn">Restart</button>
+            </div>
+        </div>
+        <div class="game-board">
+            <div class="board-grid" id="board-grid"></div>
+        </div>
+        <div class="game-footer">
+            <button class="undo-btn" id="undo-btn" disabled>Undo Last Match</button>
+            <span class="best-score" id="best-score"></span>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="win-modal">
+        <div class="modal">
+            <h2>🎉 You Won!</h2>
+            <div class="modal-stats">
+                <div class="modal-stat">
+                    <span class="modal-stat-label">Time</span>
+                    <span class="modal-stat-value" id="final-time">00:00</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="modal-stat-label">Moves</span>
+                    <span class="modal-stat-value" id="final-moves">0</span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-primary" id="new-game-btn">New Game</button>
+                <button class="btn-secondary" id="home-btn">Home</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-overlay" id="preview-overlay"></div>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
